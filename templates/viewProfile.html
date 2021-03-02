@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <center>
+        Username:  {{user.username}}<br>
+        DOB:  {{user.date_of_birth}}<br>
+        E-Mail:  {{user.email}}<br>
+        ProfilePic:  <img src="{{ user.profile_pic.url }}" alt="" width="100px", height="100px"><br>
+    </center>
+
+{% endblock %}

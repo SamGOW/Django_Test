@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<center>
+    <a href="{% url 'authentication:login' %}"> login</a><br>
+    <a href="{% url 'authentication:register' %}"> signup</a><br>
+    <a href="{% url 'authentication:checkLogin' %}"> checkLogin</a><br>
+    <a href="{% url 'authentication:logout' %}"> logout</a><br>
+    <a href="{% url 'authentication:writeBlogs' %}"> Write Blogs</a><br>
+    <a href="{% url 'authentication:editProfile' %}"> Edit Profile</a><br>
+    <a href="{% url 'authentication:viewProfile' %}"> View Profile</a>
+
+    {% for blog in blogs_all %}
+    <center>
+    <img src="{{ blog.thumbnail.url }}" alt="" width="200px" height="200px">
+    <h2><a href="/viewBlog/{{ blog.id }}/">{{blog.title}}</a></h2>
+    <h4>{{blog.blog}}</h4>
+    <h6>{{blog.owner}}</h6>
+
+    <br><br><br>
+    </center>
+
+    {% endfor %}
+{% endblock %}

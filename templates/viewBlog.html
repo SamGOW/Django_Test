@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <center><h2>
+    <img src="{{ blog_var.thumbnail.url }}" alt="", width="500px", height="200px"><br>
+    {{blog_var.title}}<br>
+    {{blog_var.blog}}<br>
+    ~{{blog_var.owner}}
+    </h2>
+
+    <br><br><br><br><br><br><br>
+
+    Comments->
+
+    <form method="POST" enctype="multipart/form-data" action="">
+    {% csrf_token %}
+    
+    {{CommentBox.as_p}}
+    <input type="submit", value="update">
+    </form>
+    <br><br><br>
+    {% for x in Comments %}
+    {{ x.comment }}
+    <h6>~{{ x.author }}</h6>
+    <br>
+    {% endfor %}
+    </center>
+
+{% endblock %}
